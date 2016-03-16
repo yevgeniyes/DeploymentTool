@@ -47,21 +47,21 @@
             // 
             // ip_textBox
             // 
-            this.ip_textBox.Location = new System.Drawing.Point(27, 119);
+            this.ip_textBox.Location = new System.Drawing.Point(27, 141);
             this.ip_textBox.Name = "ip_textBox";
             this.ip_textBox.Size = new System.Drawing.Size(112, 20);
             this.ip_textBox.TabIndex = 0;
             // 
             // pin_textBox
             // 
-            this.pin_textBox.Location = new System.Drawing.Point(27, 145);
+            this.pin_textBox.Location = new System.Drawing.Point(27, 167);
             this.pin_textBox.Name = "pin_textBox";
             this.pin_textBox.Size = new System.Drawing.Size(112, 20);
             this.pin_textBox.TabIndex = 1;
             // 
             // SelectBundle_button
             // 
-            this.SelectBundle_button.Location = new System.Drawing.Point(190, 119);
+            this.SelectBundle_button.Location = new System.Drawing.Point(190, 141);
             this.SelectBundle_button.Name = "SelectBundle_button";
             this.SelectBundle_button.Size = new System.Drawing.Size(116, 46);
             this.SelectBundle_button.TabIndex = 2;
@@ -71,7 +71,7 @@
             // 
             // Deploy_button
             // 
-            this.Deploy_button.Location = new System.Drawing.Point(27, 171);
+            this.Deploy_button.Location = new System.Drawing.Point(27, 193);
             this.Deploy_button.Name = "Deploy_button";
             this.Deploy_button.Size = new System.Drawing.Size(279, 43);
             this.Deploy_button.TabIndex = 3;
@@ -81,7 +81,7 @@
             // 
             // SolitaireUninstall_button
             // 
-            this.SolitaireUninstall_button.Location = new System.Drawing.Point(27, 220);
+            this.SolitaireUninstall_button.Location = new System.Drawing.Point(27, 242);
             this.SolitaireUninstall_button.Name = "SolitaireUninstall_button";
             this.SolitaireUninstall_button.Size = new System.Drawing.Size(279, 43);
             this.SolitaireUninstall_button.TabIndex = 4;
@@ -91,14 +91,14 @@
             // 
             // package_textBox
             // 
-            this.package_textBox.Location = new System.Drawing.Point(27, 332);
+            this.package_textBox.Location = new System.Drawing.Point(27, 354);
             this.package_textBox.Name = "package_textBox";
             this.package_textBox.Size = new System.Drawing.Size(279, 20);
             this.package_textBox.TabIndex = 5;
             // 
             // PackagesList_button
             // 
-            this.PackagesList_button.Location = new System.Drawing.Point(27, 358);
+            this.PackagesList_button.Location = new System.Drawing.Point(27, 380);
             this.PackagesList_button.Name = "PackagesList_button";
             this.PackagesList_button.Size = new System.Drawing.Size(116, 46);
             this.PackagesList_button.TabIndex = 6;
@@ -108,7 +108,7 @@
             // 
             // UninstallPackage_button
             // 
-            this.UninstallPackage_button.Location = new System.Drawing.Point(190, 358);
+            this.UninstallPackage_button.Location = new System.Drawing.Point(190, 380);
             this.UninstallPackage_button.Name = "UninstallPackage_button";
             this.UninstallPackage_button.Size = new System.Drawing.Size(116, 46);
             this.UninstallPackage_button.TabIndex = 7;
@@ -118,7 +118,7 @@
             // 
             // NetOn_button
             // 
-            this.NetOn_button.Location = new System.Drawing.Point(88, 442);
+            this.NetOn_button.Location = new System.Drawing.Point(88, 464);
             this.NetOn_button.Name = "NetOn_button";
             this.NetOn_button.Size = new System.Drawing.Size(55, 38);
             this.NetOn_button.TabIndex = 8;
@@ -128,7 +128,7 @@
             // 
             // NetOff_button
             // 
-            this.NetOff_button.Location = new System.Drawing.Point(190, 442);
+            this.NetOff_button.Location = new System.Drawing.Point(190, 464);
             this.NetOff_button.Name = "NetOff_button";
             this.NetOff_button.Size = new System.Drawing.Size(55, 38);
             this.NetOff_button.TabIndex = 9;
@@ -182,11 +182,11 @@
             this.Controls.Add(this.SelectBundle_button);
             this.Controls.Add(this.pin_textBox);
             this.Controls.Add(this.ip_textBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(350, 600);
-            this.MinimumSize = new System.Drawing.Size(350, 600);
             this.Name = "MainForm";
             this.Text = "Deployment Tool";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);

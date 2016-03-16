@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,17 +33,17 @@ namespace DeploymentTool
             string pin = pin_textBox.Text;
             
 
-            if (ip == "" || userPathAndName == "")
+            if (string.IsNullOrWhiteSpace(ip) || string.IsNullOrWhiteSpace(userPathAndName))
             {
                 toolStripStatusLabel1.Text = "Please enter IP and select BUNDLE";
                 //MessageBox.Show("Please enter IP and select BUNDLE");
                 return;
             }
 
-            string command = @"C:\""Program Files (x86)""\""Windows Kits""\10\bin\x86\WinAppDeployCmd.exe install -file " + userPathAndName + " -ip 192.168.4." + ip + " -pin " + pin;
+            string command = @"C:\""Program Files (x86)""\""Windows Kits""\10\bin\x86\WinAppDeployCmd.exe install -file " + userPathAndName + " -ip "+ Properties.Settings.Default.ip_setting + ip + " -pin " + pin;
 
             //command without pin
-            if (pin == "") command = command.Substring(0, command.Length - 6);
+            if (string.IsNullOrWhiteSpace(pin)) command = command.Substring(0, command.Length - pin.Length - 6);
 
             ProcessStartInfo install = new ProcessStartInfo();
             install.FileName = "cmd.exe";
@@ -150,6 +151,28 @@ namespace DeploymentTool
         private void NetOff_button_Click(object sender, EventArgs e)
         {
             Process.Start("cmd.exe", @"/c net use X: /delete");
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (!Directory.Exists(@"C:\DeploymentTool"))
+            {
+                Directory.CreateDirectory(@"C:\DeploymentTool");
+                try
+                {
+                    File.WriteAllBytes(@"C:\DeploymentTool\Microsoft.Tools.Connectivity.dll", Properties.Resources.Microsoft_Tools_Connectivity);
+                    File.WriteAllBytes(@"C:\DeploymentTool\SirepClient.dll", Properties.Resources.SirepClient);
+                    File.WriteAllBytes(@"C:\DeploymentTool\SirepInterop.dll", Properties.Resources.SirepInterop);
+                    File.WriteAllBytes(@"C:\DeploymentTool\WinAppDeploy.dll", Properties.Resources.WinAppDeploy);
+                    File.WriteAllBytes(@"C:\DeploymentTool\WinAppDeployCmd.exe", Properties.Resources.WinAppDeployCmd);
+                    File.WriteAllBytes(@"C:\DeploymentTool\WinAppDeployCommon.dll", Properties.Resources.WinAppDeployCommon);
+                    toolStripStatusLabel1.Text = "Files installed successfully";
+                }
+                catch
+                {
+                    toolStripStatusLabel1.Text = "Please open Settings and Install all needed files";
+                }
+            } 
         }
     }
 }
