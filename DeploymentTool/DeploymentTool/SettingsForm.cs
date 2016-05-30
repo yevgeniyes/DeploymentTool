@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DeploymentTool
@@ -34,20 +27,26 @@ namespace DeploymentTool
         {
             if (!Directory.Exists(@"C:\DeploymentTool"))
                 Directory.CreateDirectory(@"C:\DeploymentTool");
-
-            if (!File.Exists(@"C:\DeploymentTool\Microsoft.Tools.Connectivity.dll") || !File.Exists(@"C:\DeploymentTool\SirepClient.dll") ||
+            try
+            {
+                if (!File.Exists(@"C:\DeploymentTool\Microsoft.Tools.Connectivity.dll") || !File.Exists(@"C:\DeploymentTool\SirepClient.dll") ||
                 !File.Exists(@"C:\DeploymentTool\SirepInterop.dll") || !File.Exists(@"C:\DeploymentTool\WinAppDeploy.dll") ||
                 !File.Exists(@"C:\DeploymentTool\WinAppDeployCmd.exe") || !File.Exists(@"C:\DeploymentTool\WinAppDeployCommon.dll"))
-            {
-                File.WriteAllBytes(@"C:\DeploymentTool\Microsoft.Tools.Connectivity.dll", Properties.Resources.Microsoft_Tools_Connectivity);
-                File.WriteAllBytes(@"C:\DeploymentTool\SirepClient.dll", Properties.Resources.SirepClient);
-                File.WriteAllBytes(@"C:\DeploymentTool\SirepInterop.dll", Properties.Resources.SirepInterop);
-                File.WriteAllBytes(@"C:\DeploymentTool\WinAppDeploy.dll", Properties.Resources.WinAppDeploy);
-                File.WriteAllBytes(@"C:\DeploymentTool\WinAppDeployCmd.exe", Properties.Resources.WinAppDeployCmd);
-                File.WriteAllBytes(@"C:\DeploymentTool\WinAppDeployCommon.dll", Properties.Resources.WinAppDeployCommon);
-                toolStripStatusLabel2.Text = "Files installed successfully";
+                {
+                    File.WriteAllBytes(@"C:\DeploymentTool\Microsoft.Tools.Connectivity.dll", Properties.Resources.Microsoft_Tools_Connectivity);
+                    File.WriteAllBytes(@"C:\DeploymentTool\SirepClient.dll", Properties.Resources.SirepClient);
+                    File.WriteAllBytes(@"C:\DeploymentTool\SirepInterop.dll", Properties.Resources.SirepInterop);
+                    File.WriteAllBytes(@"C:\DeploymentTool\WinAppDeploy.dll", Properties.Resources.WinAppDeploy);
+                    File.WriteAllBytes(@"C:\DeploymentTool\WinAppDeployCmd.exe", Properties.Resources.WinAppDeployCmd);
+                    File.WriteAllBytes(@"C:\DeploymentTool\WinAppDeployCommon.dll", Properties.Resources.WinAppDeployCommon);
+                    toolStripStatusLabel2.Text = "Files installed successfully";
+                }
+                else toolStripStatusLabel2.Text = "All files are ready";
             }
-            else toolStripStatusLabel2.Text = "All files are ready";
+            catch
+            {
+                toolStripStatusLabel2.Text = "Run app as administrator and try again";
+            }
         }
     }
 }
