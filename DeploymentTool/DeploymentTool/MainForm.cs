@@ -66,7 +66,7 @@ namespace DeploymentTool
                 return;
             }
 
-            string command2 = @"C:\""Program Files (x86)""\""Windows Kits""\10\bin\x86\WinAppDeployCmd.exe list -ip 192.168.4." + ip + " -pin " + pin;
+            string command2 = @"C:\DeploymentTool\WinAppDeployCmd.exe list -ip 192.168.4." + ip + " -pin " + pin;
             if (string.IsNullOrWhiteSpace(pin)) command2 = command2.Substring(0, command2.Length - 6);
 
             ProcessStartInfo list = new ProcessStartInfo();
@@ -87,7 +87,7 @@ namespace DeploymentTool
                 return;
             }
 
-            string command3 = @"C:\""Program Files (x86)""\""Windows Kits""\10\bin\x86\WinAppDeployCmd.exe uninstall -package " + package + " -ip 192.168.4." + ip + " -pin " + pin;
+            string command3 = @"C:\DeploymentTool\WinAppDeployCmd.exe uninstall -package " + package + " -ip 192.168.4." + ip + " -pin " + pin;
             if (string.IsNullOrWhiteSpace(pin)) command3 = command3.Substring(0, command3.Length - 6);
 
             ProcessStartInfo uninstall = new ProcessStartInfo();

@@ -81,6 +81,7 @@
             // Install_button
             // 
             this.Install_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
+            this.Install_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Install_button.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Install_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.Install_button.Location = new System.Drawing.Point(28, 64);
