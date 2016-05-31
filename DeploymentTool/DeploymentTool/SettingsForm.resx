@@ -121,14 +121,21 @@
     <value>17, 17</value>
   </metadata>
   <data name="label2.Text" xml:space="preserve">
-    <value>Constant ip part is stored in the program memory. 
-The variable part can be set in a field (ip - ) on main form.
-
-At the first connection you need to enter pin which can 
+    <value>- To deploy build on mobile device enter device ip and 
+select bundle then click "Deploy" button. 
+- To simplify the data entry process ip address may 
+consist of two parts: constant and variable. Constant ip 
+part stored in the program memory. Variable part can be 
+set in a field (ip - ) on main form.
+- At the first connection you need to enter pin which can 
 be obtained in the section for developers on your 
 mobile device.
-When devices are pinned the pin field no longer 
+- When devices are pinned the pin field no longer 
 needed and may be empty.
-</value>
+- To show installed on device packages enter ip and 
+click "Packages list" button.
+- If you have problems with uninstalling some app from
+device use manual uninstall: enter ip, enter full package
+name and click "Uninstall" button.</value>
   </data>
 </root>

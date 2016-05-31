@@ -16,8 +16,12 @@ namespace DeploymentTool
 
         private void Settings_button_Click(object sender, EventArgs e)
         {
-            SettingsForm form = new SettingsForm();
-            form.Show();
+            if (OwnedForms.Length >= 1) return;
+            else
+            {
+                SettingsForm form = new SettingsForm();
+                form.Show(this);
+            }
         }
 
         private void Deploy_button_Click(object sender, EventArgs e)

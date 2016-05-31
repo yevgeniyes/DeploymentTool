@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -9,6 +10,7 @@ namespace DeploymentTool
         public SettingsForm()
         {
             InitializeComponent();
+            Set_button.Select();
         }
 
         private void Set_button_Click(object sender, EventArgs e)
@@ -20,6 +22,7 @@ namespace DeploymentTool
 
         private void SettingsForm_Load(object sender, EventArgs e)
         {
+            Location = new Point(Owner.Location.X, Owner.Location.Y + 30);
             ip_setting_textBox.Text = Properties.Settings.Default.ip_setting;
         }
 
